@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRANSBAKANA - Nossos Serviços</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .back-btn {
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Horizontal Navigation Menu */
+        .services-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.8rem 0;
+            position: fixed;
+            width: 100%;
+            top: 70px;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-horizontal {
+            display: flex;
+            gap: 0.5rem;
+            white-space: nowrap;
+            min-width: min-content;
+        }
+
+        .nav-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .nav-item:hover {
+            border-color: #ff6b35;
+            background: #fff8f5;
+            transform: translateY(-2px);
+        }
+
+        .nav-item a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover a {
+            color: #ff6b35;
+        }
+
+        .nav-item.active {
+            background: #fff8f5;
+            border-color: #ff6b35;
+        }
+        
+        .nav-item.active a {
+            color: #ff6b35;
+        }
+
+        /* Scroll indicator for mobile */
+        .nav-scroll-indicator {
+            display: none;
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Service Sections */
+        .service-section {
+            padding: 4rem 0;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .service-section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .service-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            border-radius: 2px;
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .service-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .details-content h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .details-content p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .features-list li {
+            color: #555;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: #ff6b35;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .back-to-top {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #e55a2b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .service-details {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-horizontal {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .nav-item {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-item a {
+                font-size: 0.8rem;
+            }
+
+            .nav-scroll-indicator {
+                display: block;
+            }
+
+            .service-title {
+                font-size: 2rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+            }
+
+            .header-content {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            /* Custom scrollbar for mobile */
+            .services-nav::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .services-nav::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            .services-nav::-webkit-scrollbar-thumb {
+                background: #ff6b35;
+                border-radius: 4px;
+            }
+
+            .services-nav::-webkit-scrollbar-thumb:hover {
+                background: #e55a2b;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .back-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .nav-item {
+                padding: 0.4rem 0.8rem;
+            }
+
+            .nav-item a {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="index2.html" class="logo">TRANSBAKANA</a>
+            <a href="index2.html" class="back-btn">← Voltar ao Início</a>
+        </div>
+    </header>
+
+    <nav class="services-nav">
+        <div class="nav-container">
+            <div class="nav-scroll-indicator">← Deslize para ver mais serviços →</div>
+            <div class="nav-horizontal">
+                <div class="nav-item">
+                    <a href="#transporte-maquinas">🚛 Transporte de Máquinas</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#carga">📦 Carga</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#escavacao">⛏️ Escavação</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#aterro">🏔️ Aterro</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#compactacao">🔨 Compactação</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#terraplanagem">🏗️ Terraplanagem</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#demolicao">⚡ Demolição</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#consultoria">📋 Consultoria</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Transporte de Máquinas -->
+        <section id="transporte-maquinas" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">🚛</div>
+                    <h1 class="service-title">Transporte de Máquinas Especiais</h1>
+                    <p class="service-description">
+                        Oferecemos o deslocamento seguro e eficiente de equipamentos e máquinas de grande porte com total segurança e confiabilidade.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="details-content">
+                        <h3>Transporte Especializado</h3>
+                        <p>Nossa equipe especializada garante o transporte seguro de equipamentos pesados, utilizando carretas adequadas e operadores experientes.</p>
+                        <ul class="features-list">
+                            <li>Carretas especializadas para diferentes tipos de máquinas</li>
+                            <li>Operadores certificados e experientes</li>
+                            <li>Seguro total durante o transporte</li>
+                            <li>Planejamento de rota otimizada</li>
+                            <li>Documentação completa e regularizada</li>
+                            <li>Acompanhamento em tempo real</li>
+                        </ul>
+                    </div>
+                    <div class="service-image">
+                        Transporte Seguro de<br>Equipamentos pesados
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carga -->
+        <section id="carga" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">📦</div>
+                    <h2 class="service-title">Serviços de Carga</h2>
+                    <p class="service-description">
+                        Executamos o carregamento de materiais diversos, garantindo agilidade e precisão nas operações de movimentação.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="service-image">
+                        Carregamento Eficiente<br>e Organizado
+                    </div>
+                    <div class="details-content">
+                        <h3>Carregamento Profissional</h3>
+                        <p>Realizamos o carregamento de diversos tipos de materiais com equipamentos adequados e técnicas que garantem eficiência e segurança.</p>
+                        <ul class="features-list">
+                            <li>Carregadeiras de diferentes portes</li>
+                            <li>Carregamento de terra, areia, brita e entulho</li>
+                            <li>Operação rápida e eficiente</li>
+                            <li>Minimização de perdas de material</li>
+                            <li>Planejamento logístico completo</li>
+                            <li>Controle de qualidade do material</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Escavação -->
+        <section id="escavacao" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">⛏️</div>
+                    <h2 class="service-title">Escavação</h2>
+                    <p class="service-description">
+                        Realizamos a remoção de terra e outros materiais para abertura de valas, fundações, cavas e diversos tipos de escavação.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="details-content">
+                        <h3>Escavação Profissional</h3>
+                        <p>Utilizamos escavadeiras modernas e técnicas adequadas para cada tipo de terreno e projeto, garantindo precisão e eficiência.</p>
+                        <ul class="features-list">
+                            <li>Escavadeiras hidráulicas de diversos portes</li>
+                            <li>Escavação de valas e fundações</li>
+                            <li>Abertura de cavas e lagoas</li>
+                            <li>Escavação em diferentes tipos de solo</li>
+                            <li>Controle de profundidade e dimensões</li>
+                            <li>Remoção e transporte do material escavado</li>
+                        </ul>
+                    </div>
+                    <div class="service-image">
+                        Escavação Precisa<br>e Controlada
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aterro -->
+        <section id="aterro" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">🏔️</div>
+                    <h2 class="service-title">Aterro</h2>
+                    <p class="service-description">
+                        Fazemos o preenchimento de áreas deprimidas ou a elevação de níveis de solo com materiais adequados e técnicas apropriadas.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="service-image">
+                        Aterramento Técnico<br>e Controlado
+                    </div>
+                    <div class="details-content">
+                        <h3>Aterramento Especializado</h3>
+                        <p>Realizamos aterros com materiais selecionados e técnicas que garantem estabilidade e durabilidade das estruturas.</p>
+                        <ul class="features-list">
+                            <li>Seleção adequada de materiais de aterro</li>
+                            <li>Controle de compactação por camadas</li>
+                            <li>Aterro estrutural e comum</li>
+                            <li>Nivelamento preciso</li>
+                            <li>Controle de umidade do material</li>
+                            <li>Ensaios de qualidade quando necessário</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compactação -->
+        <section id="compactacao" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">🔨</div>
+                    <h2 class="service-title">Compactação</h2>
+                    <p class="service-description">
+                        Garantimos a densidade e estabilidade do solo através de técnicas e equipamentos especializados para cada tipo de projeto.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="details-content">
+                        <h3>Compactação Profissional</h3>
+                        <p>Utilizamos rolos compactadores e equipamentos específicos para alcançar a densidade ideal do solo conforme especificações técnicas.</p>
+                        <ul class="features-list">
+                            <li>Rolos compactadores lisos e pneumáticos</li>
+                            <li>Placas vibratórias para áreas pequenas</li>
+                            <li>Controle de densidade por camadas</li>
+                            <li>Compactação de diferentes tipos de material</li>
+                            <li>Ensaios de compactação quando necessário</li>
+                            <li>Acabamento superficial de qualidade</li>
+                        </ul>
+                    </div>
+                    <div class="service-image">
+                        Compactação de Alta<br>Qualidade e Densidade
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terraplanagem -->
+        <section id="terraplanagem" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">🏗️</div>
+                    <h2 class="service-title">Terraplanagem</h2>
+                    <p class="service-description">
+                        Realizamos o nivelamento e conformação do terreno, preparando-o para diversas construções e projetos de infraestrutura.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="service-image">
+                        Terraplanagem Completa<br>e Profissional
+                    </div>
+                    <div class="details-content">
+                        <h3>Preparação Completa do Terreno</h3>
+                        <p>Executamos todos os serviços necessários para preparar o terreno, desde a limpeza inicial até o acabamento final.</p>
+                        <ul class="features-list">
+                            <li>Limpeza e desmatamento do terreno</li>
+                            <li>Corte e aterro para nivelamento</li>
+                            <li>Sistematização de terrenos</li>
+                            <li>Abertura de acessos e vias</li>
+                            <li>Drenagem superficial</li>
+                            <li>Acabamento final com motoniveladora</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demolição -->
+        <section id="demolicao" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">⚡</div>
+                    <h2 class="service-title">Demolição</h2>
+                    <p class="service-description">
+                        Conduzimos a demolição controlada de estruturas e edificações com segurança, eficiência e responsabilidade ambiental.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="details-content">
+                        <h3>Demolição Controlada e Segura</h3>
+                        <p>Realizamos demolições com planejamento detalhado, priorizando a segurança e o mínimo impacto ao meio ambiente.</p>
+                        <ul class="features-list">
+                            <li>Demolição seletiva e total</li>
+                            <li>Equipamentos especializados em demolição</li>
+                            <li>Remoção e destinação adequada de entulho</li>
+                            <li>Controle de poeira e ruído</li>
+                            <li>Segurança total durante a operação</li>
+                            <li>Licenças e documentação regularizada</li>
+                        </ul>
+                    </div>
+                    <div class="service-image">
+                        Demolição Segura<br>e Responsável
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultoria -->
+        <section id="consultoria" class="service-section">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-icon">📋</div>
+                    <h2 class="service-title">Consultoria</h2>
+                    <p class="service-description">
+                        Oferecemos assessoria técnica especializada para projetos de terraplanagem e movimentação de terra com expertise comprovada.
+                    </p>
+                </div>
+                <div class="service-details">
+                    <div class="service-image">
+                        Consultoria Técnica<br>Especializada
+                    </div>
+                    <div class="details-content">
+                        <h3>Assessoria Técnica Completa</h3>
+                        <p>Nossa equipe técnica oferece consultoria especializada para otimizar seus projetos e garantir os melhores resultados.</p>
+                        <ul class="features-list">
+                            <li>Análise técnica de projetos</li>
+                            <li>Planejamento de movimentação de terra</li>
+                            <li>Otimização de custos e prazos</li>
+                            <li>Especificação de equipamentos</li>
+                            <li>Análise de viabilidade técnica</li>
+                            <li>Acompanhamento e supervisão de obras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Precisa de Nossos Serviços?</h2>
+                    <p>Entre em contato conosco e solicite um orçamento personalizado para seu projeto</p>
+                    <a href="index2.html#contact" class="cta-button">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/5511996164149?text=Olá! Gostaria de solicitar um orçamento para serviços de locação e terraplanagem." 
+           class="whatsapp-btn" 
+           target="_blank" 
+           title="Fale conosco no WhatsApp">
+            💬
+        </a>
+        <button class="back-to-top" onclick="scrollToTop()" title="Voltar ao topo">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button visibility
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Check for hash in URL and scroll to section
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                }
+            }
+        });
+
+        // Highlight active navigation item
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.service-section');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a');
+                if (link.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
