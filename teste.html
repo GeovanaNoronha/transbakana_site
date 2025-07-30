@@ -32,7 +32,7 @@
         }
 
         .header-content {
-            max-width: 1400px;
+            max-width:400rem;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -799,37 +799,25 @@
         }
 
         // Check for hash in URL and scroll to section
-        window.addEventListener('load', () => {
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
-                }
-            }
-        });
-
-        // Highlight active navigation item
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.service-section');
-            const navItems = document.querySelectorAll('.nav-item');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
+    const sections = document.querySelectorAll('.service-section');
+    const navItems = document.querySelectorAll('.nav-item');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
 
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                const link = item.querySelector('a');
-                if (link.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        const link = item.querySelector('a');
+        if (link && link.getAttribute('href').slice(1) === current) {
+            item.classList.add('active');
+        }
+    });
+});

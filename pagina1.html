@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRANSBAKANA - Nossos Serviços</title>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     <style>
         * {
             margin: 0;
@@ -32,7 +33,7 @@
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width:400rem;
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
@@ -68,16 +69,17 @@
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
         }
 
-        /* Navigation Menu */
+        /* Horizontal Navigation Menu */
         .services-nav {
             background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             position: fixed;
             width: 100%;
             top: 70px;
             z-index: 999;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             backdrop-filter: blur(10px);
+            overflow-x: auto;
         }
 
         .nav-container {
@@ -86,20 +88,22 @@
             padding: 0 2rem;
         }
 
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+        .nav-horizontal {
+            display: flex;
+            gap: 0.5rem;
+            white-space: nowrap;
+            min-width: min-content;
         }
 
         .nav-item {
             background: white;
             border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 0.8rem;
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
+            flex-shrink: 0;
         }
 
         .nav-item:hover {
@@ -113,15 +117,35 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .nav-item:hover a {
             color: #ff6b35;
         }
 
+        .nav-item.active {
+            background: #fff8f5;
+            border-color: #ff6b35;
+        }
+        
+        .nav-item.active a {
+            color: #ff6b35;
+        }
+
+        /* Scroll indicator for mobile */
+        .nav-scroll-indicator {
+            display: none;
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+            font-size: 0.8rem;
+        }
+
         /* Main Content */
         .main-content {
-            margin-top: 140px;
+            margin-top: 120px;
             padding: 2rem 0;
         }
 
@@ -131,7 +155,7 @@
             padding: 0 2rem;
         }
 
-        /* Service Sections */
+        /* Service sections */
         .service-section {
             padding: 4rem 0;
             border-bottom: 2px solid #f0f0f0;
@@ -285,29 +309,6 @@
             gap: 15px;
         }
 
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-btn:hover {
-            background: #128C7E;
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-        }
 
         .back-to-top {
             background: #ff6b35;
@@ -359,17 +360,21 @@
                 gap: 2rem;
             }
 
-            .nav-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
+            .nav-horizontal {
+                padding-left: 1rem;
+                padding-right: 1rem;
             }
 
             .nav-item {
-                padding: 0.5rem;
+                padding: 0.5rem 1rem;
             }
 
             .nav-item a {
                 font-size: 0.8rem;
+            }
+
+            .nav-scroll-indicator {
+                display: block;
             }
 
             .service-title {
@@ -387,6 +392,47 @@
             .container {
                 padding: 0 1rem;
             }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            /* Custom scrollbar dor mobile */
+            .services-nav::-webkit-scrollbar {
+                height: 4px;
+            }
+
+            .services-nav::-webkit-scrollbar-track {
+                background: #f1f1f1;
+            }
+
+            .services-nav::-webkit-scrollbar-thumb {
+                background: #ff6b35;
+                border-radius: 4px;
+            }
+
+            .services-nav::-webkit-scrollbar-thumb:hover {
+                background: #e55a2b;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .back-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .nav-item {
+                padding: 0.4rem 0.8rem;
+            }
+
+            .nav-item a {
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
@@ -400,30 +446,31 @@
 
     <nav class="services-nav">
         <div class="nav-container">
-            <div class="nav-grid">
+            <div class="nav-scroll-indicator">← Deslize para ver mais serviços →</div>
+            <div class="nav-horizontal">
                 <div class="nav-item">
-                    <a href="#transporte-maquinas">Transporte de Máquinas</a>
+                    <a href="#transporte-maquinas">🚛 Transporte de máquinas</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#carga">Carga</a>
+                    <a href="#carga">📦 Carga</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#escavacao">Escavação</a>
+                    <a href="#escavacao">⛏️ Escavação</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#aterro">Aterro</a>
+                    <a href="#aterro">🏔️ Aterro</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#compactacao">Compactação</a>
+                    <a href="#compactacao">🔨 Compactação</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#terraplanagem">Terraplanagem</a>
+                    <a href="#terraplanagem">🏗️ Terraplanagem</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#demolicao">Demolição</a>
+                    <a href="#demolicao">⚡ Demolição</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#consultoria">Consultoria</a>
+                    <a href="#consultoria">📋 Consultoria</a>
                 </div>
             </div>
         </div>
@@ -435,14 +482,14 @@
             <div class="container">
                 <div class="service-header">
                     <div class="service-icon">🚛</div>
-                    <h1 class="service-title">Transporte de Máquinas Especiais</h1>
+                    <h1 class="service-title">Transporte de máquinas especiais</h1>
                     <p class="service-description">
                         Oferecemos o deslocamento seguro e eficiente de equipamentos e máquinas de grande porte com total segurança e confiabilidade.
                     </p>
                 </div>
                 <div class="service-details">
                     <div class="details-content">
-                        <h3>Transporte Especializado</h3>
+                        <h3>Transporte especializado</h3>
                         <p>Nossa equipe especializada garante o transporte seguro de equipamentos pesados, utilizando carretas adequadas e operadores experientes.</p>
                         <ul class="features-list">
                             <li>Carretas especializadas para diferentes tipos de máquinas</li>
@@ -453,9 +500,8 @@
                             <li>Acompanhamento em tempo real</li>
                         </ul>
                     </div>
-                    <div class="service-image"> >
-                    
-                        Transporte Seguro de<br>Equipamentos pesados
+                    <div class="service-image">
+                        Transporte seguro de<br>Equipamentos pesados
                     </div>
                 </div>
             </div>
@@ -466,17 +512,17 @@
             <div class="container">
                 <div class="service-header">
                     <div class="service-icon">📦</div>
-                    <h2 class="service-title">Serviços de Carga</h2>
+                    <h2 class="service-title">Serviços de carga</h2>
                     <p class="service-description">
                         Executamos o carregamento de materiais diversos, garantindo agilidade e precisão nas operações de movimentação.
                     </p>
                 </div>
                 <div class="service-details">
                     <div class="service-image">
-                        Carregamento Eficiente<br>e Organizado
+                        Carregamento eficiente<br>e Organizado
                     </div>
                     <div class="details-content">
-                        <h3>Carregamento Profissional</h3>
+                        <h3>Carregamento profissional</h3>
                         <p>Realizamos o carregamento de diversos tipos de materiais com equipamentos adequados e técnicas que garantem eficiência e segurança.</p>
                         <ul class="features-list">
                             <li>Carregadeiras de diferentes portes</li>
@@ -503,7 +549,7 @@
                 </div>
                 <div class="service-details">
                     <div class="details-content">
-                        <h3>Escavação Profissional</h3>
+                        <h3>Escavação profissional</h3>
                         <p>Utilizamos escavadeiras modernas e técnicas adequadas para cada tipo de terreno e projeto, garantindo precisão e eficiência.</p>
                         <ul class="features-list">
                             <li>Escavadeiras hidráulicas de diversos portes</li>
@@ -515,7 +561,7 @@
                         </ul>
                     </div>
                     <div class="service-image">
-                        Escavação Precisa<br>e Controlada
+                        Escavação precisa<br>e Controlada
                     </div>
                 </div>
             </div>
@@ -533,7 +579,7 @@
                 </div>
                 <div class="service-details">
                     <div class="service-image">
-                        Aterramento Técnico<br>e Controlado
+                        Aterramento técnico<br>e Controlado
                     </div>
                     <div class="details-content">
                         <h3>Aterramento Especializado</h3>
@@ -563,7 +609,7 @@
                 </div>
                 <div class="service-details">
                     <div class="details-content">
-                        <h3>Compactação Profissional</h3>
+                        <h3>Compactação profissional</h3>
                         <p>Utilizamos rolos compactadores e equipamentos específicos para alcançar a densidade ideal do solo conforme especificações técnicas.</p>
                         <ul class="features-list">
                             <li>Rolos compactadores lisos e pneumáticos</li>
@@ -575,7 +621,7 @@
                         </ul>
                     </div>
                     <div class="service-image">
-                        Compactação de Alta<br>Qualidade e Densidade
+                        Compactação de alta<br>Qualidade e densidade
                     </div>
                 </div>
             </div>
@@ -593,10 +639,10 @@
                 </div>
                 <div class="service-details">
                     <div class="service-image">
-                        Terraplanagem Completa<br>e Profissional
+                        Terraplanagem completa<br>e profissional
                     </div>
                     <div class="details-content">
-                        <h3>Preparação Completa do Terreno</h3>
+                        <h3>Preparação completa do terreno</h3>
                         <p>Executamos todos os serviços necessários para preparar o terreno, desde a limpeza inicial até o acabamento final.</p>
                         <ul class="features-list">
                             <li>Limpeza e desmatamento do terreno</li>
@@ -623,7 +669,7 @@
                 </div>
                 <div class="service-details">
                     <div class="details-content">
-                        <h3>Demolição Controlada e Segura</h3>
+                        <h3>Demolição controlada e segura</h3>
                         <p>Realizamos demolições com planejamento detalhado, priorizando a segurança e o mínimo impacto ao meio ambiente.</p>
                         <ul class="features-list">
                             <li>Demolição seletiva e total</li>
@@ -635,7 +681,7 @@
                         </ul>
                     </div>
                     <div class="service-image">
-                        Demolição Segura<br>e Responsável
+                        Demolição segura<br>e responsável
                     </div>
                 </div>
             </div>
@@ -653,10 +699,10 @@
                 </div>
                 <div class="service-details">
                     <div class="service-image">
-                        Consultoria Técnica<br>Especializada
+                        Consultoria técnica<br>especializada
                     </div>
                     <div class="details-content">
-                        <h3>Assessoria Técnica Completa</h3>
+                        <h3>Assessoria técnica completa</h3>
                         <p>Nossa equipe técnica oferece consultoria especializada para otimizar seus projetos e garantir os melhores resultados.</p>
                         <ul class="features-list">
                             <li>Análise técnica de projetos</li>
@@ -675,7 +721,7 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-content">
-                    <h2>Precisa de Nossos Serviços?</h2>
+                    <h2>Precisa de nossos serviços?</h2>
                     <p>Entre em contato conosco e solicite um orçamento personalizado para seu projeto</p>
                     <a href="index2.html#contact" class="cta-button">Solicitar Orçamento</a>
                 </div>
@@ -685,12 +731,135 @@
 
     <!-- Floating Buttons -->
     <div class="floating-buttons">
-        <a href="https://wa.me/5511996164149?text=Olá! Gostaria de solicitar um orçamento para serviços de locação e terraplanagem." 
-           class="whatsapp-btn" 
-           target="_blank" 
-           title="Fale conosco no WhatsApp">
-            💬
+        <a href="https://wa.me/5511996164149?text=Olá! Gostaria de solicitar um orçamento para serviços de locação e terraplanagem." >
+         <!-- CSS -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    background: #128C7E;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    animation: none;
+}
+
+.whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.whatsapp-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    animation: bounce 1s infinite;
+    border: 2px solid white;
+}
+
+.whatsapp-float::before {
+    content: 'Chame no WhatsApp!';
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background: #2c3e50;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.whatsapp-float::after {
+    content: '';
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #2c3e50;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover::before,
+.whatsapp-float:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+    50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6); transform: scale(1.05); }
+    100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-3px); }
+    60% { transform: translateY(-2px); }
+}
+</style>
+
+<!-- HTML -->
+<a href="#" class="whatsapp-float" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.484 3.488"/>
+    </svg>
+    <span class="whatsapp-badge">!</span>
+</a>
+<!-- Colocar as imagens usando vh e vw para tornar o site responsivo -->
+ 
+<!-- JavaScript -->
+<script>
+function openWhatsApp() {
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+}
+</script>
         </a>
+        
         <button class="back-to-top" onclick="scrollToTop()" title="Voltar ao topo">
             ↑
         </button>
@@ -731,54 +900,25 @@
         }
 
         // Check for hash in URL and scroll to section
-        window.addEventListener('load', () => {
-            if (window.location.hash) {
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 100);
-                }
-            }
-        });
-
-        // Highlight active navigation item
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.service-section');
-            const navItems = document.querySelectorAll('.nav-item');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }}
+    const sections = document.querySelectorAll('.service-section');
+    const navItems = document.querySelectorAll('.nav-item');
     
-        )
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                const link = item.querySelector('a');
-                if (link.getAttribute('href').slice(1) === current) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    </script>
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
 
-    <style>
-        .nav-item.active {
-            background: #fff8f5;
-            border-color: #ff6b35;
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        const link = item.querySelector('a');
+        if (link && link.getAttribute('href').slice(1) === current) {
+            item.classList.add('active');
         }
-        
-        .nav-item.active a {
-            color: #ff6b35;
-        }
-    </style>
-</body>
-</html>
+    });
+});
