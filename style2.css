@@ -429,8 +429,8 @@
                 box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             }
         }
-
-        /* Responsive Design */
+  /* Arrumar o boão de back-to-top e mexer no css do botão do Whatsapp*/
+        /* Responsive design */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
