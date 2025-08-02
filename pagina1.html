@@ -244,10 +244,16 @@
             font-size: 1.2rem;
         }
 
-        .service-image {
+img {
+width: 800px!important;
+height: 600px!important;
+}
+
+        .service-image-equipment {
             width: 100%;
             height: 300px;
-            background: linear-gradient(45deg, #ff6b35, #f4a261);
+            /*background: linear-gradient(45deg, #ff6b35, #f4a261);*/
+            background-image: url(images/maquinas.jpg);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -258,6 +264,114 @@
             text-align: center;
             padding: 2rem;
         }
+
+        .service-image-loading {
+            width: 100%;
+            height: 300px;
+            /*background: linear-gradient(45deg, #ff6b35, #f4a261);*/
+            background-image: url(images/carregadeira.png);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+
+.service-image-excavation {
+            width: 100%;
+            height: 300px;
+            /*background: linear-gradient(45deg, #ff6b35, #f4a261);*/
+            background-image: url(images/escavadeira.png);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+.service-image-grounding {
+            width: 100%;
+            height: 300px;
+            /*background: linear-gradient(45deg, #ff6b35, #f4a261);*/
+            background-image: url(images/aterramento.jpg);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+.service-image-compression {
+            width: 100%;
+            height: 300px;
+            /*background: linear-gradient(45deg, #ff6b35, #f4a261);*/
+            background-image: url(images/rolo-compactador.png);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .service-image-earthworks {
+            width: 100%;
+            height: 300px;
+            background-image: url(images/terraplanagem.png);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+.service-image-demolition {
+            width: 100%;
+            height: 300px;
+            background-image: url(images/demolicao.jpg);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .service-image-consultancy {
+            width: 100%;
+            height: 300px;
+            background-image: url(images/consultoria.png);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+        
 
         /* CTA Section */
         .cta-section {
@@ -544,8 +658,8 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="index2.html" class="logo">TRANSBAKANA</a>
-            <a href="index2.html" class="back-btn">← Voltar ao Início</a>
+            <a href="index.html" class="logo">TRANSBAKANA</a>
+            <a href="index.html" class="back-btn">← Voltar ao Início</a>
         </div>
     </header>
 
@@ -605,9 +719,8 @@
                             <li>Acompanhamento em tempo real</li>
                         </ul>
                     </div>
-                    <div class="service-image">
-                        Transporte seguro de<br>Equipamentos pesados
-                    </div>
+                    <div class="service-image-equipment"></div>
+        
                 </div>
             </div>
         </section>
@@ -623,9 +736,7 @@
                     </p>
                 </div>
                 <div class="service-details">
-                    <div class="service-image">
-                        Carregamento eficiente<br>e Organizado
-                    </div>
+                    <div class="service-image-loading"></div>
                     <div class="details-content">
                         <h3>Carregamento profissional</h3>
                         <p>Realizamos o carregamento de diversos tipos de materiais com equipamentos adequados e técnicas que garantem eficiência e segurança.</p>
@@ -665,8 +776,7 @@
                             <li>Remoção e transporte do material escavado</li>
                         </ul>
                     </div>
-                    <div class="service-image">
-                        Escavação precisa<br>e Controlada
+                    <div class="service-image-excavation">
                     </div>
                 </div>
             </div>
@@ -683,9 +793,7 @@
                     </p>
                 </div>
                 <div class="service-details">
-                    <div class="service-image">
-                        Aterramento técnico<br>e Controlado
-                    </div>
+                    <div class="service-image-grounding"></div>
                     <div class="details-content">
                         <h3>Aterramento Especializado</h3>
                         <p>Realizamos aterros com materiais selecionados e técnicas que garantem estabilidade e durabilidade das estruturas.</p>
@@ -725,9 +833,7 @@
                             <li>Acabamento superficial de qualidade</li>
                         </ul>
                     </div>
-                    <div class="service-image">
-                        Compactação de alta<br>Qualidade e densidade
-                    </div>
+                    <div class="service-image-compression"></div>
                 </div>
             </div>
         </section>
@@ -743,9 +849,7 @@
                     </p>
                 </div>
                 <div class="service-details">
-                    <div class="service-image">
-                        Terraplanagem completa<br>e profissional
-                    </div>
+                    <div class="service-image-earthworks"></div>
                     <div class="details-content">
                         <h3>Preparação completa do terreno</h3>
                         <p>Executamos todos os serviços necessários para preparar o terreno, desde a limpeza inicial até o acabamento final.</p>
@@ -785,9 +889,7 @@
                             <li>Licenças e documentação regularizada</li>
                         </ul>
                     </div>
-                    <div class="service-image">
-                        Demolição segura<br>e responsável
-                    </div>
+                    <div class="service-image-demolition"></div>
                 </div>
             </div>
         </section>
@@ -803,9 +905,7 @@
                     </p>
                 </div>
                 <div class="service-details">
-                    <div class="service-image">
-                        Consultoria técnica<br>especializada
-                    </div>
+                    <div class="service-image-consultancy"></div>
                     <div class="details-content">
                         <h3>Assessoria técnica completa</h3>
                         <p>Nossa equipe técnica oferece consultoria especializada para otimizar seus projetos e garantir os melhores resultados.</p>
@@ -828,7 +928,7 @@
                 <div class="cta-content">
                     <h2>Precisa de nossos serviços?</h2>
                     <p>Entre em contato conosco e solicite um orçamento personalizado para seu projeto</p>
-                    <a href="index2.html#contact" class="cta-button">Solicitar Orçamento</a>
+                    <a href="index.html#contact" class="cta-button">Solicitar Orçamento</a>
                 </div>
             </div>
         </section>

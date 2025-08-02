@@ -26,12 +26,24 @@ function toggleMenu() {
         // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const backToTopBtn = document.querySelector('.back-to-top');
+            
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(26, 26, 26, 0.95)';
+                backToTopBtn.classList.add('visible');
             } else {
                 header.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%)';
+                backToTopBtn.classList.remove('visible');
             }
         });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
         // Animate elements on scroll
         const observerOptions = {

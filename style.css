@@ -1,3 +1,7 @@
+  a {
+    text-decoration: none;
+    color: inherit; /* Para herdar a cor do texto pai*/
+  }
 * {
             margin: 0;
             padding: 0;
@@ -372,7 +376,61 @@
             }
         }
 
-        /* Responsive Design */
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .back-to-top {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #e55a2b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+        }
+  /* Arrumar o boão de back-to-top e mexer no css do botão do Whatsapp*/
+        /* Responsive design */
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -411,5 +469,22 @@
 
             .container {
                 padding: 0 1rem;
+            }
+
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .whatsapp-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
         }
