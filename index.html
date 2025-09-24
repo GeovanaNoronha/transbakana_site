@@ -37,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+<!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">Nossos serviços</h2>
@@ -183,7 +183,78 @@
         </div>
     </div>
 </section>
+ <style>
 
+        .stats-rectangle {
+            background: rgba(6, 68, 175, 0.708);
+            backdrop-filter: blur(10px);
+            
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 600px;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .stats-rectangle {
+                gap: 20px;
+                padding: 15px 25px;
+                height: 70px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+                margin-bottom: 3px;
+            }
+            
+            .stat-label {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+    
+    <div class="stats-rectangle">
+        <div class="stat-item">
+            <div class="stat-number">17+</div>
+            <div class="stat-label">Anos de história</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-number">2900+</div>
+            <div class="stat-label">Projetos executados</div>
+        </div>
+        
+        <div class="stat-item">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Clientes satisfeitos</div>
+        </div>
+    </div>
 <style>
 /* Clients Section */
 .clients {
@@ -194,7 +265,7 @@
 .clients .section-title {
     text-align: center;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #10375e;
     font-size: 2.5rem;
     font-weight: 700;
 }
@@ -248,7 +319,7 @@
 .client-logo:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    border: 2px solid #3498db;
+    border: 2px solid #0082d8;
 }
 
 .client-logo img {
@@ -294,7 +365,7 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-    
+
     .client-logo {
         padding: 1rem;
         min-height: 80px;
@@ -302,16 +373,15 @@
     
     .client-logo img {
         max-height: 40px;
-    }
-}
+}}
 </style>
-    <!-- Contact Section -->
+    <!-- Contact section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Entre em contato</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Informações de Contato</h3>
+                    <h3>Informações de contato</h3>
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div>

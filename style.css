@@ -85,7 +85,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f4a261" width="1200" height="800"/><polygon fill="%23e76f51" points="0,800 400,600 800,700 1200,500 1200,800"/><polygon fill="%23264653" points="0,600 300,400 600,500 900,300 1200,400 1200,800 0,800"/></svg>');
+            background: linear-gradient(rgba(211, 149, 16, 0.589), rgba(0,0,0,0.6)),url(images/background.png) ;                                                                                 opacity: 0.90;                        
             background-size: cover;
             background-position: center;
             height: 100vh;
